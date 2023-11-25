@@ -1,4 +1,4 @@
-package Sprint4;
+package ru.yandex.praktikum.page_object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

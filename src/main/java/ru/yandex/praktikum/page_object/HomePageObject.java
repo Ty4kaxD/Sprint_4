@@ -1,4 +1,4 @@
-package Sprint4;
+package ru.yandex.praktikum.page_object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -23,7 +23,7 @@ public class HomePageObject {
 
     // кнопка куки
     private final By buttonCookie = By.xpath(".//button[@class='App_CookieButton__3cvqF']");
-
+    private final String site = "https://qa-scooter.praktikum-services.ru/";
 
     public HomePageObject(WebDriver driver) {
         this.driver = driver;
@@ -31,7 +31,7 @@ public class HomePageObject {
     }
 
     public void open() {
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(site);
     }
 
     public void clickOrderButtonUpOnHomePage() {

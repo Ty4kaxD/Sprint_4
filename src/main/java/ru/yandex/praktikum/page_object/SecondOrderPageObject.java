@@ -1,4 +1,4 @@
-package Sprint4;
+package ru.yandex.praktikum.page_object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -38,7 +38,7 @@ public class SecondOrderPageObject {
         driver.findElement(descriptionForMan).sendKeys(description);
     }
 
-    public void clickcalendar() {
+    public void clickCalendar() {
         driver.findElement(calendar).click();
     }
 

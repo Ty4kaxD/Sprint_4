@@ -1,4 +1,4 @@
-package Sprint4;
+package ru.yandex.praktikum.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -10,6 +10,7 @@ import org.junit.runners.Parameterized;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import ru.yandex.praktikum.page_object.HomePageObject;
 
 @RunWith(Parameterized.class)
 public class TestAccordion {

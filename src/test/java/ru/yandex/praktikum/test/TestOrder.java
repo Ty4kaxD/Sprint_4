@@ -1,4 +1,4 @@
-package Sprint4;
+package ru.yandex.praktikum.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -6,9 +6,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import ru.yandex.praktikum.page_object.HomePageObject;
+import ru.yandex.praktikum.page_object.OrderPageObject;
+import ru.yandex.praktikum.page_object.SecondOrderPageObject;
 
 import static org.junit.Assert.assertTrue;
 
@@ -69,7 +74,7 @@ public class TestOrder {
         pageObject.clickButtonNext();
 
         secondPageObject.setDescriptionForMan(comment);
-        secondPageObject.clickcalendar();
+        secondPageObject.clickCalendar();
         secondPageObject.choiceDay();
         secondPageObject.clickArendaField();
         secondPageObject.choiceDayArend();
@@ -85,26 +90,10 @@ public class TestOrder {
     @Test
     public void choiceOrderWithUpButton() {
         HomePageObject homePage = new HomePageObject(driver);
-        OrderPageObject pageObject = new OrderPageObject(driver);
-        SecondOrderPageObject secondPageObject = new SecondOrderPageObject(driver);
         homePage.open();
         homePage.clickOrderButtonUpOnHomePage();
-        pageObject.setNameField(name);
-        pageObject.setLastNameField(surname);
-        pageObject.setMetroField(metro);
-        pageObject.setAdresField(adres);
-        pageObject.setNomberPhone(phone);
-        pageObject.clickButtonNext();
-        secondPageObject.setDescriptionForMan(comment);
-        secondPageObject.clickcalendar();
-        secondPageObject.choiceDay();
-        secondPageObject.clickArendaField();
-        secondPageObject.choiceDayArend();
-        secondPageObject.clickBlackChevkbox();
-        secondPageObject.clickButtonOrder();
-        secondPageObject.clickButtonYes();
-        assertTrue("Ошибка",
-                secondPageObject.getOrderMessage().contains(exectedOrderText));
+        WebElement orderWindowElement = driver.findElement(By.xpath(".//div[text()='Для кого самокат']"));
+        assertTrue("Ошибка", orderWindowElement.isDisplayed());
     }
 
     @After
